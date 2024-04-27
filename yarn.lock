@@ -1610,6 +1610,11 @@
     hookable "^5.5.3"
     unhead "1.9.7"
 
+"@valibot/i18n@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@valibot/i18n/-/i18n-0.10.0.tgz#1eb3597476d0c411e6f07ee078caa2ec833d8ad2"
+  integrity sha512-jcfaRC2gwAa9AplRLrWsNRKIce1dsA/dnWoxD9WURqESf29rYmPDMgbhUA3fEb+t4UCuj8Y6RJBgr+Y0pQk35Q==
+
 "@vercel/nft@^0.26.4":
   version "0.26.4"
   resolved "https://registry.yarnpkg.com/@vercel/nft/-/nft-0.26.4.tgz#d7e8ebb91567d25240e8cb996152ea77392cea7f"
@@ -7770,6 +7775,11 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+valibot@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/valibot/-/valibot-0.30.0.tgz#6b90386a04d2c281cdc5dc6ad33bd3d2d7ea13b5"
+  integrity sha512-5POBdbSkM+3nvJ6ZlyQHsggisfRtyT4tVTo1EIIShs6qCdXJnyWU5TJ68vr8iTg5zpOLjXLRiBqNx+9zwZz/rA==
 
 validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.4:
   version "3.0.4"
