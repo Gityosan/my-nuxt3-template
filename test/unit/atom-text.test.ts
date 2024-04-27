@@ -1,4 +1,5 @@
-import { mount } from '@vue/test-utils'
+// @vitest-environment nuxt
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import AtomText from '@/components/atom/text/index.vue'
 const props = {
   text: 'sample',
@@ -7,8 +8,8 @@ const props = {
   color: 'text-black',
   lineHeight: 'line-height-sm'
 }
-describe('AtomText', () => {
-  const wrapper = mount(AtomText, { props })
+describe('AtomText', async () => {
+  const wrapper = await mountSuspended(AtomText, { props })
   const element = wrapper.find('p')
   test('data display', () => {
     expect(element.text()).toBe(props.text)
