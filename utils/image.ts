@@ -1,7 +1,7 @@
 import { string, url, safeParse } from 'valibot'
 
 const urlSchema = string([url()])
-export const typeSafetyImageUrl = (file?: File | string | null): string => {
+export const typeSafetyFileUrl = (file?: File | string | null): string => {
   if (!file) return ''
   else if (typeof file === 'string') {
     const validationResult = safeParse(urlSchema, file)
