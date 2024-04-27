@@ -1,4 +1,4 @@
-import { typeSafetyFileUrl } from '@/utils/image'
+import { typeSafetyFileUrl } from '@/utils/file'
 
 describe('typeSafetyFileUrl function', () => {
   // Test for null input
