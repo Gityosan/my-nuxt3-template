@@ -13,13 +13,8 @@ export default defineNuxtConfig({
   },
   typescript: { shim: false, strict: true },
   css: ['@/assets/index.scss'],
-  modules: ['@nuxtjs/critters', './modules/vuetify/module'],
-  critters: {
-    config: {
-      preload: 'swap',
-      pruneSource: true
-    }
-  },
+  modules: ['@nuxtjs/critters', '@nuxt/test-utils/module', './modules/vuetify/module'],
+  critters: { config: { preload: 'swap', pruneSource: true } },
   runtimeConfig: {
     app: {
       name: 'Nuxt',

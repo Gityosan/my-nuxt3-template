@@ -1,14 +1,12 @@
 // <reference types="vitest">
-import { defineConfig } from 'vitest/config'
-import Vue from '@vitejs/plugin-vue'
+import { defineVitestConfig } from '@nuxt/test-utils/config'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { Vuetify3Resolver } from 'unplugin-vue-components/resolvers'
 import { fileURLToPath } from 'node:url'
 
-export default defineConfig({
+export default defineVitestConfig({
   plugins: [
-    Vue(),
     AutoImport({
       dirs: ['utils', 'composables'],
       imports: ['vue', 'vue-router', 'vitest'],
@@ -30,7 +28,7 @@ export default defineConfig({
   test: {
     root: '.',
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     coverage: {
       provider: 'v8',
       enabled: true
