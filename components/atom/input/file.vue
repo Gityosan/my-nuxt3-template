@@ -15,7 +15,7 @@ const emitFile = () => {
 const onFilePicked = (e: Event) => {
   const pickedFiles = (e.target as HTMLInputElement)?.files
   if (!pickedFiles) return
-  if (Array.from(pickedFiles).some((v) => v.size >= 5 * 1024 * 1024)) {
+  if (Array.from(pickedFiles).some(v => v.size >= 5 * 1024 * 1024)) {
     alert('アップロード可能な画像サイズは5MBまでです')
     return
   }
@@ -35,11 +35,17 @@ const onDragLeave = (e: DragEvent) => {
   isDropOvering.value = false
 }
 </script>
+
 <template>
   <div
     class="w-100 height-200 bg-grey-lighten-4 rounded border-width-1 border-dotted border-grey-lighten-1 position-relative"
   >
-    <v-img v-if="imageURL" :src="imageURL" :aspect-ratio="16 / 9" class="max-height-198" />
+    <v-img
+      v-if="imageURL"
+      :src="imageURL"
+      :aspect-ratio="16 / 9"
+      class="max-height-198"
+    />
     <v-hover v-slot="{ isHovering, props: hover }">
       <div
         class="w-100 h-100 pa-10 d-flex flex-column justify-center align-center position-absolute top-0 left-0 rounded transition-short-ease-out"
@@ -79,14 +85,17 @@ const onDragLeave = (e: DragEvent) => {
           v-else
           class="px-4 py-2 d-flex align-center bg-white rounded border-solid border-width-1 border-grey-lighten-1 cursor-pointer"
         >
-          <v-icon icon="mdi-folder-open" class="mr-2" />
+          <v-icon
+            icon="mdi-folder-open"
+            class="mr-2"
+          />
           <atom-text text="ファイルを選択" />
           <input
             type="file"
             accept="image/png, image/jpeg, image/gif"
             class="d-none"
             @input="onFilePicked"
-          />
+          >
         </label>
       </div>
     </v-hover>

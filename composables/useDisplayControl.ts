@@ -1,6 +1,6 @@
-import { ref, readonly, onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted, readonly, ref } from 'vue'
 
-export function useDisplay(
+export function useDisplayControl(
   {
     smBoundary = 568,
     mdBoundary = 768,

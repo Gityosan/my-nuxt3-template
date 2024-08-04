@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { useDisplay } from 'vuetify'
 const props = withDefaults(
   defineProps<{
-    headers: { title: string; key: string }[]
+    headers: { title: string, key: string }[]
     items: any[]
     customColumns: string[]
     page: number
@@ -46,14 +45,18 @@ const deleteItems = async () => {
   for (let i = 0, len = selectedIds.value.length; i < len; i++) {
     await emit('delete', selectedIds.value[i])
   }
-  records.value = records.value.filter((v) => !selectedIds.value.includes(v.id))
+  records.value = records.value.filter(v => !selectedIds.value.includes(v.id))
   selectedIds.value = []
   open.value = false
 }
 </script>
+
 <template>
   <v-card class="pt-2 pb-5">
-    <div class="d-flex align-center py-3 px-5" style="gap: 0 8px">
+    <div
+      class="d-flex align-center py-3 px-5"
+      style="gap: 0 8px"
+    >
       <v-text-field
         v-model="search"
         prepend-inner-icon="mdi-magnify"
@@ -116,7 +119,7 @@ const deleteItems = async () => {
       @update:items-per-page="$emit('update:per-page', $event)"
     >
       <template #top>
-        <slot name="top"></slot>
+        <slot name="top" />
       </template>
       <template
         #headers="{
@@ -130,7 +133,10 @@ const deleteItems = async () => {
         }"
       >
         <tr>
-          <template v-for="column in columns" :key="column.key">
+          <template
+            v-for="column in columns"
+            :key="column.key"
+          >
             <th
               v-if="column.key === 'data-table-select'"
               class="px-2 bg-grey-lighten-3 border-bottom-solid border-width-1 border-grey-lighten-1"
@@ -156,7 +162,11 @@ const deleteItems = async () => {
               >
                 {{ column.title }}
                 <template v-if="isSorted(column)">
-                  <v-icon :icon="getSortIcon(column)" size="20" style="margin-bottom: 2px"></v-icon>
+                  <v-icon
+                    :icon="getSortIcon(column)"
+                    size="20"
+                    style="margin-bottom: 2px"
+                  />
                 </template>
               </atom-text>
             </th>
@@ -190,14 +200,30 @@ const deleteItems = async () => {
             </div>
           </td>
         </tr>
-        <slot name="headers"></slot>
+        <slot name="headers" />
       </template>
-      <template v-for="c in customColumns" :key="c" #[`item.${c}`]="{ item }">
-        <slot :name="c" :item="item" />
+      <template
+        v-for="c in customColumns"
+        :key="c"
+        #[`item.${c}`]="{ item }"
+      >
+        <slot
+          :name="c"
+          :item="item"
+        />
       </template>
-      <template v-if="headers.find((v) => v.key === 'action')" #item.action="{ item }">
-        <slot name="action" :item="item">
-          <div class="d-flex flex-nowrap" style="gap: 0 8px">
+      <template
+        v-if="headers.find((v) => v.key === 'action')"
+        #item.action="{ item }"
+      >
+        <slot
+          name="action"
+          :item="item"
+        >
+          <div
+            class="d-flex flex-nowrap"
+            style="gap: 0 8px"
+          >
             <atom-button-outlined
               text="編集"
               variant="small"
@@ -216,7 +242,11 @@ const deleteItems = async () => {
         </slot>
       </template>
       <template #expanded-row="{ columns, item }">
-        <slot name="expanded-row" :item="item" :columns="columns"> </slot>
+        <slot
+          name="expanded-row"
+          :item="item"
+          :columns="columns"
+        />
       </template>
       <template #bottom>
         <slot name="bottom">
@@ -231,8 +261,15 @@ const deleteItems = async () => {
         </slot>
       </template>
     </v-data-table>
-    <v-dialog v-model="open" persistent>
-      <v-card flat class="rounded-lg py-6 px-10" min-width="370">
+    <v-dialog
+      v-model="open"
+      persistent
+    >
+      <v-card
+        flat
+        class="rounded-lg py-6 px-10"
+        min-width="370"
+      >
         <atom-text
           :text="selectedIds.length + '件のデータを本当に削除しますか？'"
           class="w-100 mt-5 mb-10 text-center"
