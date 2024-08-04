@@ -16,3 +16,6 @@ components.d.ts
 package-lock.json
 
 .pnp.*
+
+# eslint
+.eslintcache

@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('stylelint').Config} */
+export default {
   customSyntax: 'postcss-html',
   extends: ['stylelint-config-standard-scss', 'stylelint-config-recess-order'],
   ignoreFiles: ['**/node_modules/**', '**/.nuxt/**', '**/.output/**', '**/dist/**'],
@@ -11,7 +12,7 @@ module.exports = {
     'number-leading-zero': null,
     'color-hex-length': 'short',
     'color-no-invalid-hex': true,
-    indentation: 2,
+    'indentation': 2,
     'length-zero-no-unit': true,
     'media-feature-name-no-vendor-prefix': true,
     'shorthand-property-no-redundant-values': true,

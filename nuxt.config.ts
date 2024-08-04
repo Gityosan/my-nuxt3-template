@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   ssr: false,
+
   app: {
     head: {
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -11,15 +12,12 @@ export default defineNuxtConfig({
       ]
     }
   },
+
   typescript: { shim: false, strict: true },
   css: ['@/assets/index.scss'],
-  modules: [
-    '@nuxtjs/critters',
-    '@nuxt/test-utils/module',
-    './modules/vuetify/module',
-    '@formkit/auto-animate/nuxt'
-  ],
+  modules: ['@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
   critters: { config: { preload: 'swap', pruneSource: true } },
+
   runtimeConfig: {
     app: {
       name: 'Nuxt',
@@ -29,5 +27,18 @@ export default defineNuxtConfig({
       port: 3000
     }
   },
-  devtools: { enabled: true }
+
+  devtools: { enabled: true },
+
+  eslint: {
+    checker: true,
+    config: {
+      stylistic: {
+        semi: false,
+        commaDangle: 'never'
+      }
+    }
+  },
+
+  compatibilityDate: '2024-08-05'
 })
