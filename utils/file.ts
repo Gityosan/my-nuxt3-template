@@ -6,6 +6,7 @@ export const typeSafetyFileUrl = (file?: File | string | null): string => {
   else if (typeof file === 'string') {
     const validationResult = safeParse(urlSchema, file)
     return validationResult.success ? file : ''
-  } else if (file instanceof File) return URL.createObjectURL(file)
+  }
+  else if (file instanceof File) return URL.createObjectURL(file)
   else return ''
 }

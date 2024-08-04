@@ -19,6 +19,7 @@ withDefaults(
   }
 )
 </script>
+
 <template>
   <component
     :is="comp"

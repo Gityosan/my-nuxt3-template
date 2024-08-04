@@ -1,5 +1,6 @@
 import R from 'remeda'
 import { isObject, isFile } from '@/utils/type-guard'
+
 export const toSnakeCase = (str: string): string => {
   return str
     .replace(/[-\s]/g, '_')

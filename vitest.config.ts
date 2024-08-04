@@ -1,9 +1,9 @@
 // <reference types="vitest">
+import { fileURLToPath } from 'node:url'
 import { defineVitestConfig } from '@nuxt/test-utils/config'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import { Vuetify3Resolver } from 'unplugin-vue-components/resolvers'
-import { fileURLToPath } from 'node:url'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineVitestConfig({
   plugins: [

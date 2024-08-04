@@ -1,6 +1,6 @@
 // @vitest-environment nuxt
-import { useDisplay } from '@/composables/useDisplay'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { useDisplay } from '@/composables/useDisplay'
 
 // ダミーコンポーネントの定義
 const DummyComponent = defineComponent({

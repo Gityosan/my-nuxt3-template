@@ -5,7 +5,7 @@ describe('convertToFormData function', () => {
     const params = { name: 'John', age: 30 }
     const form = convertToFormData(params)
     const response = []
-    for (let e of form.entries()) {
+    for (const e of form.entries()) {
       response.push(e)
     }
     expect(response).toStrictEqual([
@@ -23,7 +23,7 @@ describe('convertToFormData function', () => {
     }
     const form = convertToFormData(params)
     const response = []
-    for (let e of form.entries()) {
+    for (const e of form.entries()) {
       response.push(e)
     }
     expect(response).toStrictEqual([
@@ -39,7 +39,7 @@ describe('convertToFormData function', () => {
     }
     const form = convertToFormData(params)
     const response = []
-    for (let e of form.entries()) {
+    for (const e of form.entries()) {
       response.push(e)
     }
     expect(response).toStrictEqual([
@@ -53,7 +53,7 @@ describe('convertToFormData function', () => {
     const params = { file: file }
     const form = convertToFormData(params)
     const response = []
-    for (let e of form.entries()) {
+    for (const e of form.entries()) {
       response.push(e)
     }
     expect(response).toStrictEqual([['file', file]])

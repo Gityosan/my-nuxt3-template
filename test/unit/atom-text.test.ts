@@ -1,6 +1,7 @@
 // @vitest-environment nuxt
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import AtomText from '@/components/atom/text/index.vue'
+
 const props = {
   text: 'sample',
   fontSize: 'text-subtitle-1',
