@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   typescript: { shim: false, strict: true },
   css: ['@/assets/index.scss'],
-  modules: ['@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
+  modules: ['vuetify-nuxt-module', '@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
   critters: { config: { preload: 'swap', pruneSource: true } },
 
   runtimeConfig: {
@@ -34,7 +34,6 @@ export default defineNuxtConfig({
     checker: true,
     config: {
       stylistic: {
-        semi: false,
         commaDangle: 'never'
       }
     }

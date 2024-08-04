@@ -1,4 +1,5 @@
 // @ts-check
+import vitest from 'eslint-plugin-vitest'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
@@ -9,6 +10,10 @@ export default withNuxt(
     rules: {
       'no-console': 'off'
     }
+  },
+  {
+    files: ['test/**/*.{test,spec}.ts'],
+    plugins: { vitest }
   }
 )
   .override('nuxt/vue/rules', {
@@ -35,15 +40,7 @@ export default withNuxt(
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off'
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/unified-signatures': 'off'
     }
   })
-//   .override({
-//   files: ['test/**/*.{test,spec}.ts'],
-//   extends: [
-//     'eslint:recommended',
-//     'plugin:@typescript-eslint/recommended',
-//     'plugin:vitest/recommended',
-//     'prettier',
-//   ],
-// });
