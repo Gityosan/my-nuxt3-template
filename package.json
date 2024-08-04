@@ -28,6 +28,7 @@
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vitest": "^0.5.4",
     "happy-dom": "^14.12.3",
     "nuxt": "^3.12.4",
     "postcss-html": "^1.7.0",
@@ -41,7 +42,8 @@
     "unplugin-vue-components": "^0.27.3",
     "valibot": "^0.37.0",
     "vite-plugin-eslint2": "^4.4.0",
-    "vitest": "^2.0.5"
+    "vitest": "^2.0.5",
+    "vuetify-nuxt-module": "^0.16.1"
   },
   "dependencies": {},
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
