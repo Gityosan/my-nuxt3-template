@@ -1,10 +1,9 @@
 import {
   toSnakeCase,
-  toLowerCamelCase,
-  toUpperCamelCase,
+  toPascalCase,
   convertKeyToSnakeCase,
-  convertKeyToLowerCamelCase,
-  convertKeyToUpperCamelCase
+  convertKeyToCamelCase,
+  convertKeyToPascalCase
 } from '@/utils/string-case'
 
 describe('String and Object Key Conversion Functions', () => {
@@ -15,18 +14,11 @@ describe('String and Object Key Conversion Functions', () => {
       expect(toSnakeCase('test-string')).toBe('test_string')
     })
 
-    it('converts to lowerCamelCase correctly', () => {
-      expect(toLowerCamelCase('TestString')).toBe('testString')
-      expect(toLowerCamelCase('testString')).toBe('testString')
-      expect(toLowerCamelCase('test_string')).toBe('testString')
-      expect(toLowerCamelCase('Test-String')).toBe('testString')
-    })
-
     it('converts to UpperCamelCase correctly', () => {
-      expect(toUpperCamelCase('TestString')).toBe('TestString')
-      expect(toUpperCamelCase('testString')).toBe('TestString')
-      expect(toUpperCamelCase('test_string')).toBe('TestString')
-      expect(toUpperCamelCase('test-string')).toBe('TestString')
+      expect(toPascalCase('TestString')).toBe('TestString')
+      expect(toPascalCase('testString')).toBe('TestString')
+      expect(toPascalCase('test_string')).toBe('TestString')
+      expect(toPascalCase('test-string')).toBe('TestString')
     })
 
     it('converts distorted word to snake_case correctly', () => {
@@ -40,24 +32,14 @@ describe('String and Object Key Conversion Functions', () => {
       expect(toSnakeCase('Distorted2Test_String')).toBe('distorted2test_string')
     })
 
-    it('converts distorted word to lowerCamelCase correctly', () => {
-      expect(toLowerCamelCase('test_String')).toBe('testString')
-      expect(toLowerCamelCase('Test_String')).toBe('testString')
-      expect(toLowerCamelCase('test-String')).toBe('testString')
-      expect(toLowerCamelCase('Test-String')).toBe('testString')
-      expect(toLowerCamelCase('distorted_test-string')).toBe('distortedTestString')
-      expect(toLowerCamelCase('Distorted-Test_String')).toBe('distortedTestString')
-      expect(toLowerCamelCase('2distortedTest_String')).toBe('2distortedTestString')
-    })
-
     it('converts distorted word to UpperCamelCase correctly', () => {
-      expect(toUpperCamelCase('test_String')).toBe('TestString')
-      expect(toUpperCamelCase('Test_String')).toBe('TestString')
-      expect(toUpperCamelCase('test-String')).toBe('TestString')
-      expect(toUpperCamelCase('Test-String')).toBe('TestString')
-      expect(toUpperCamelCase('distorted_test-string')).toBe('DistortedTestString')
-      expect(toUpperCamelCase('Distorted-Test_String')).toBe('DistortedTestString')
-      expect(toUpperCamelCase('2distortedTest_String')).toBe('2distortedTestString')
+      expect(toPascalCase('test_String')).toBe('TestString')
+      expect(toPascalCase('Test_String')).toBe('TestString')
+      expect(toPascalCase('test-String')).toBe('TestString')
+      expect(toPascalCase('Test-String')).toBe('TestString')
+      expect(toPascalCase('distorted_test-string')).toBe('DistortedTestString')
+      expect(toPascalCase('Distorted-Test_String')).toBe('DistortedTestString')
+      expect(toPascalCase('2distortedTest_String')).toBe('2distortedTestString')
     })
   })
 
@@ -80,25 +62,25 @@ describe('String and Object Key Conversion Functions', () => {
     })
 
     it('converts object keys to lowerCamelCase correctly', () => {
-      const lowerCamelCaseObj = convertKeyToLowerCamelCase(testObj)
+      const lowerCamelCaseObj = convertKeyToCamelCase(testObj)
       expect(lowerCamelCaseObj).toEqual({
         testKey: 'value',
         anotherKey: { nestedKey: 'nestedValue', nestedKeyTwo: 'value2' },
         arrayTest: [{ arrayKey: 'arrayValue' }]
       })
-      expect(convertKeyToLowerCamelCase(null)).toEqual({})
-      expect(convertKeyToLowerCamelCase(undefined)).toEqual({})
+      expect(convertKeyToCamelCase(null)).toEqual({})
+      expect(convertKeyToCamelCase(undefined)).toEqual({})
     })
 
     it('converts object keys to UpperCamelCase correctly', () => {
-      const upperCamelCaseObj = convertKeyToUpperCamelCase(testObj)
+      const upperCamelCaseObj = convertKeyToPascalCase(testObj)
       expect(upperCamelCaseObj).toEqual({
         TestKey: 'value',
         AnotherKey: { NestedKey: 'nestedValue', NestedKeyTwo: 'value2' },
         ArrayTest: [{ ArrayKey: 'arrayValue' }]
       })
-      expect(convertKeyToUpperCamelCase(null)).toEqual({})
-      expect(convertKeyToUpperCamelCase(undefined)).toEqual({})
+      expect(convertKeyToPascalCase(null)).toEqual({})
+      expect(convertKeyToPascalCase(undefined)).toEqual({})
     })
   })
 })

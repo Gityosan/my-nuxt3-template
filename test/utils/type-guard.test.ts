@@ -1,22 +1,6 @@
-import { isObject, isFile, isEmptyObject } from '@/utils/type-guard'
+import { isFile, isEmptyObject } from '@/utils/type-guard'
 
 describe('Utility Functions', () => {
-  describe('isObject', () => {
-    it('should return true for plain objects', () => {
-      expect(isObject({})).toBe(true)
-      expect(isObject({ key: 'value' })).toBe(true)
-      expect(isObject(new Date())).toBe(true)
-      expect(isObject(new File([''], 'filename'))).toBe(true)
-    })
-
-    it('should return false for non-objects', () => {
-      expect(isObject(null)).toBe(false)
-      expect(isObject(123)).toBe(false)
-      expect(isObject('string')).toBe(false)
-      expect(isObject([])).toBe(false)
-    })
-  })
-
   describe('isFile', () => {
     it('should return true for File objects', () => {
       // 注意: File オブジェクトのテストはブラウザ環境でのみ意味を持ちます

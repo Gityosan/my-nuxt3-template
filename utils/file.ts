@@ -1,11 +1,10 @@
-import { string, url, safeParse } from 'valibot'
+import { pipe, string, url, safeParse } from 'valibot'
 
-const urlSchema = string([url()])
+const urlSchema = pipe(string(), url('This url is invalid format.'))
 export const typeSafetyFileUrl = (file?: File | string | null): string => {
   if (!file) return ''
   else if (typeof file === 'string') {
-    const validationResult = safeParse(urlSchema, file)
-    return validationResult.success ? file : ''
+    return safeParse(urlSchema, file).success ? file : ''
   }
   else if (file instanceof File) return URL.createObjectURL(file)
   else return ''
