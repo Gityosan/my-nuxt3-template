@@ -5,6 +5,7 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
-    "biomejs.biome"
+    "biomejs.biome",
+    "antfu.iconify"
   ]
 }

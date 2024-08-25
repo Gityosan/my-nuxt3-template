@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 
   typescript: { shim: false, strict: true },
   css: ['@/assets/index.scss'],
-  modules: ['vuetify-nuxt-module', '@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
+  modules: ['vuetify-nuxt-module', '@nuxt/icon', '@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
   critters: { config: { preload: 'swap', pruneSource: true } },
   vite: {
     plugins: [vanillaExtractPlugin({})],
@@ -44,6 +44,15 @@ export default defineNuxtConfig({
         commaDangle: 'never'
       }
     }
+  },
+
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom-icon',
+        dir: './assets/icons'
+      }
+    ]
   },
 
   compatibilityDate: '2024-08-05'
