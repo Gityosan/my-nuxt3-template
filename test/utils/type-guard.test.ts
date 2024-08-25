@@ -1,4 +1,17 @@
+import type * as Remeda from 'remeda'
 import { isFile, isEmptyObject } from '@/utils/type-guard'
+
+vi.mock('remeda', async () => {
+  const actual = await vi.importActual<typeof Remeda>('remeda')
+  return {
+    ...actual,
+    default: {
+      ...actual,
+      isPlainObject: vi.fn((str: string) => actual.isPlainObject(str)),
+      isEmpty: vi.fn((str: string) => actual.isEmpty(str))
+    }
+  }
+})
 
 describe('Utility Functions', () => {
   describe('isFile', () => {

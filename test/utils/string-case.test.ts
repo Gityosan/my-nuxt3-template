@@ -1,3 +1,4 @@
+import type * as Remeda from 'remeda'
 import {
   toSnakeCase,
   toPascalCase,
@@ -5,6 +6,18 @@ import {
   convertKeyToCamelCase,
   convertKeyToPascalCase
 } from '@/utils/string-case'
+
+vi.mock('remeda', async () => {
+  const actual = await vi.importActual<typeof Remeda>('remeda')
+  return {
+    ...actual,
+    default: {
+      ...actual,
+      toCamelCase: vi.fn((str: string) => actual.toCamelCase(str)),
+      capitalize: vi.fn((str: string) => actual.capitalize(str))
+    }
+  }
+})
 
 describe('String and Object Key Conversion Functions', () => {
   describe('String conversion functions', () => {
@@ -39,7 +52,7 @@ describe('String and Object Key Conversion Functions', () => {
       expect(toPascalCase('Test-String')).toBe('TestString')
       expect(toPascalCase('distorted_test-string')).toBe('DistortedTestString')
       expect(toPascalCase('Distorted-Test_String')).toBe('DistortedTestString')
-      expect(toPascalCase('2distortedTest_String')).toBe('2distortedTestString')
+      expect(toPascalCase('2distortedTest_String')).toBe('2DistortedTestString')
     })
   })
 

@@ -1,4 +1,16 @@
+import type * as Remeda from 'remeda'
 import { convertToFormData } from '@/utils/form-data'
+
+vi.mock('remeda', async () => {
+  const actual = await vi.importActual<typeof Remeda>('remeda')
+  return {
+    ...actual,
+    default: {
+      ...actual,
+      isPlainObject: vi.fn((str: string) => actual.isPlainObject(str))
+    }
+  }
+})
 
 describe('convertToFormData function', () => {
   it('converts simple objects to FormData', () => {

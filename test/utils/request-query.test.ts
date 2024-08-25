@@ -1,4 +1,16 @@
+import type * as Remeda from 'remeda'
 import { queries, convertToUrlQuery } from '@/utils/request-query'
+
+vi.mock('remeda', async () => {
+  const actual = await vi.importActual<typeof Remeda>('remeda')
+  return {
+    ...actual,
+    default: {
+      ...actual,
+      isDate: vi.fn((str: string) => actual.isDate(str))
+    }
+  }
+})
 
 describe('queries function', () => {
   it('should return empty string if no arguments are provided', () => {
