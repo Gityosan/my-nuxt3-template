@@ -1,6 +1,4 @@
 {
-  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
-  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
   "editor.tabSize": 2,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {

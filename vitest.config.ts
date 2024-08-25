@@ -5,6 +5,15 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { Vuetify3Resolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 
+const testExcludeFiles = [
+  '**/node_modules/**',
+  '**/dist/**',
+  '**/cypress/**',
+  '**/.nuxt/**',
+  '**/coverage/**',
+  '**/.{idea,git,cache,output,temp}/**',
+  '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,eslint,stylelint,nuxt}.config.*'
+]
 export default defineVitestConfig({
   plugins: [
     AutoImport({
@@ -31,7 +40,9 @@ export default defineVitestConfig({
     environment: 'happy-dom',
     coverage: {
       provider: 'v8',
-      enabled: true
-    }
+      enabled: true,
+      exclude: testExcludeFiles
+    },
+    exclude: testExcludeFiles
   }
 })

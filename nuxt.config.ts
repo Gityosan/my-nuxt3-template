@@ -1,3 +1,5 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
+
 export default defineNuxtConfig({
   ssr: false,
 
@@ -17,7 +19,12 @@ export default defineNuxtConfig({
   css: ['@/assets/index.scss'],
   modules: ['vuetify-nuxt-module', '@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
   critters: { config: { preload: 'swap', pruneSource: true } },
-
+  vite: {
+    plugins: [vanillaExtractPlugin({})],
+    ssr: {
+      noExternal: ['@vanilla-extract/css']
+    }
+  },
   runtimeConfig: {
     app: {
       name: 'Nuxt',
