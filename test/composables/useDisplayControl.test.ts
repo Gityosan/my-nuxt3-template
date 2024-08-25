@@ -1,16 +1,16 @@
 // @vitest-environment nuxt
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import { useDisplay } from '@/composables/useDisplay'
+import { useDisplayControl } from '@/composables/useDisplayControl'
 
 // ダミーコンポーネントの定義
 const DummyComponent = defineComponent({
   template: '<div></div>',
   setup() {
-    return useDisplay()
+    return useDisplayControl()
   }
 })
 
-describe('useDisplay', () => {
+describe('useDisplayControl', () => {
   let wrapper: ReturnType<typeof mountSuspended>
   beforeEach(async () => {
     wrapper = await mountSuspended(DummyComponent, {
