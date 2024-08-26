@@ -18,6 +18,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@formkit/drag-and-drop": "^0.1.6",
     "@formkit/tempo": "^0.1.2",
+    "@iconify/types": "^2.0.0",
     "@nuxt/eslint": "^0.5.2",
     "@nuxt/icon": "^1.4.10",
     "@nuxt/test-utils": "^3.14.1",
