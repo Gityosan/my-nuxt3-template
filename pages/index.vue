@@ -5,5 +5,6 @@ useHead({ title: 'index' })
 <template>
   <div>
     <h1>Index</h1>
+    <atom-input-file />
   </div>
 </template>

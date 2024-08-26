@@ -1,6 +1,7 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles'
-import type { RecipeVariants } from '@vanilla-extract/recipes'
 import { recipe } from '@vanilla-extract/recipes'
+import { style } from '@vanilla-extract/css'
+import { colorSprinkles } from './color.css'
 
 const typographyProperties = defineProperties({
   properties: {
@@ -20,9 +21,9 @@ const typographyProperties = defineProperties({
       body_l: '16px',
       body_m: '14px',
       label_l: '14px',
-      label_m: '14px',
+      label_m: '12px',
       caption_l: '12px',
-      caption_m: '12px',
+      caption_m: '10px',
       button: '16px'
     },
     fontWeight: {
@@ -46,51 +47,62 @@ const typographyProperties = defineProperties({
   }
 })
 
-export const typographyStyles = createSprinkles(typographyProperties)
+export const typographySprinkles = createSprinkles(typographyProperties)
 
 export const textStyle = recipe({
-  base: {
-    fontFamily: 'Noto Sans JP, sans-serif',
-    color: '#333333'
-  },
+  base: style([
+    {
+      fontFamily: 'Noto Sans JP, sans-serif'
+    },
+    colorSprinkles({ color: 'solid-grey-800' })
+  ]),
   variants: {
     variant: {
       heading1: [
-        typographyStyles({ fontSize: 'heading_lg', lineHeight: 'level_4', fontWeight: 'normal' })
+        typographySprinkles({ fontSize: 'heading_lg', lineHeight: 'level_4', fontWeight: 'normal' }),
+        { paddingTop: '64px', paddingBottom: '24px' }
       ],
       heading2: [
-        typographyStyles({ fontSize: 'heading_md', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'heading_md', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' }),
+        { paddingTop: '64px', paddingBottom: '24px' }
       ],
       heading3: [
-        typographyStyles({ fontSize: 'heading_sm', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'heading_sm', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' }),
+        { paddingTop: '40px', paddingBottom: '24px' }
       ],
       heading4: [
-        typographyStyles({ fontSize: 'heading_xs', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'heading_xs', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' }),
+        { paddingTop: '40px', paddingBottom: '16px' }
       ],
       heading5: [
-        typographyStyles({ fontSize: 'heading_xxs', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'heading_xxs', lineHeight: 'level_5', fontWeight: 'normal', letterSpacing: 'base' }),
+        { paddingTop: '40px', paddingBottom: '16px' }
       ],
       body_l: [
-        typographyStyles({ fontSize: 'body_l', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'body_l', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'base' })
       ],
       body_m: [
-        typographyStyles({ fontSize: 'body_m', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'body_m', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'base' })
       ],
       label_l: [
-        typographyStyles({ fontSize: 'label_l', lineHeight: 'level_5', fontWeight: 'medium', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'label_l', lineHeight: 'level_5', fontWeight: 'medium', letterSpacing: 'base' })
       ],
       label_m: [
-        typographyStyles({ fontSize: 'label_m', lineHeight: 'level_5', fontWeight: 'medium', letterSpacing: 'base' })
+        typographySprinkles({ fontSize: 'label_m', lineHeight: 'level_5', fontWeight: 'medium', letterSpacing: 'base' })
       ],
       caption_l: [
-        typographyStyles({ fontSize: 'caption_l', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'tight' })
+        typographySprinkles({ fontSize: 'caption_l', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'tight' })
       ],
       caption_m: [
-        typographyStyles({ fontSize: 'caption_m', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'tight' })
+        typographySprinkles({ fontSize: 'caption_m', lineHeight: 'level_7', fontWeight: 'normal', letterSpacing: 'tight' })
       ],
       button: [
-        typographyStyles({ fontSize: 'button', lineHeight: 'level_5', fontWeight: 'bold', letterSpacing: 'base' })
-      ]
+        typographySprinkles({ fontSize: 'button', lineHeight: 'level_5', fontWeight: 'bold', letterSpacing: 'base' })
+      ],
+      button_icon: {
+        height: '24px',
+        width: '24px'
+      }
     }
   },
   defaultVariants: {
@@ -98,4 +110,4 @@ export const textStyle = recipe({
   }
 })
 
-export type TextStyleVariants = RecipeVariants<typeof textStyle>
+export type TextStyleVariants = NonNullable<Parameters<typeof textStyle>[0]>
