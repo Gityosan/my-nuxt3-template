@@ -1,7 +1,7 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles'
 import { recipe } from '@vanilla-extract/recipes'
 import { style } from '@vanilla-extract/css'
-import { colorSprinkles } from './color.css'
+import { globalVars } from './color.css'
 
 const typographyProperties = defineProperties({
   properties: {
@@ -41,8 +41,8 @@ const typographyProperties = defineProperties({
       level_7: '1.7'
     },
     letterSpacing: {
-      base: '4%',
-      tight: '2%'
+      base: '0.04em',
+      tight: '0.02em'
     }
   }
 })
@@ -54,7 +54,7 @@ export const textStyle = recipe({
     {
       fontFamily: 'Noto Sans JP, sans-serif'
     },
-    colorSprinkles({ color: 'solid-grey-800' })
+    globalVars.color['solid-grey-800']
   ]),
   variants: {
     variant: {

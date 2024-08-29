@@ -1,94 +1,96 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 import { textStyle } from './typography.css'
-import { borderRadiusSprinkles } from './borderRadis.css'
-import { colorSprinkles } from './color.css'
+import { globalVars } from './color.css'
 
 export const buttonStyle = recipe({
   base: style([
     textStyle({ variant: 'button' }),
-    borderRadiusSprinkles({ borderRadius: 'small' }),
     {
       border: 'none',
       cursor: 'pointer',
       transition: 'background-color 0.3s ease',
+      whiteSpace: 'nowrap', /* 折り返し無しにする */
+      overflow: 'hidden', /* はみ出た部分を非表示 */
+      textOverflow: 'ellipsis', /* 語尾を3点リーダーに */
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      borderRadius: globalVars.borderRadius.small
     }
   ]),
   variants: {
     variant: {
       primary: {
-        'backgroundColor': colorSprinkles({ color: 'blue-900' }),
-        'color': colorSprinkles({ color: 'white' }),
+        'backgroundColor': globalVars.color['blue-900'],
+        'color': globalVars.color.white,
         ':hover': {
-          backgroundColor: colorSprinkles({ color: 'blue-1000' })
+          backgroundColor: globalVars.color['blue-1000']
         },
         ':active': {
-          backgroundColor: colorSprinkles({ color: 'blue-1100' })
+          backgroundColor: globalVars.color['blue-1100']
         },
         ':focus': {
-          backgroundColor: colorSprinkles({ color: 'blue-900' })
+          backgroundColor: globalVars.color['blue-900']
         },
         ':disabled': {
-          backgroundColor: colorSprinkles({ color: 'black' }),
+          backgroundColor: globalVars.color.black,
           opacity: '0.3',
           textDecoration: 'none',
           cursor: 'default'
         }
       },
       secondary: {
-        'backgroundColor': colorSprinkles({ color: 'white' }),
-        'color': colorSprinkles({ color: 'blue-900' }),
+        'backgroundColor': globalVars.color.white,
+        'color': globalVars.color['blue-900'],
         'borderWidth': '1px',
         'borderStyle': 'solid',
-        'borderColor': colorSprinkles({ color: 'blue-900' }),
+        'borderColor': globalVars.color['blue-900'],
         ':hover': {
-          color: colorSprinkles({ color: 'blue-1000' }),
-          borderColor: colorSprinkles({ color: 'blue-1000' }),
-          backgroundColor: colorSprinkles({ color: 'blue-200' })
+          color: globalVars.color['blue-1000'],
+          borderColor: globalVars.color['blue-1000'],
+          backgroundColor: globalVars.color['blue-200']
         },
         ':active': {
-          color: colorSprinkles({ color: 'blue-1200' }),
-          borderColor: colorSprinkles({ color: 'blue-1200' }),
-          backgroundColor: colorSprinkles({ color: 'blue-300' })
+          color: globalVars.color['blue-1200'],
+          borderColor: globalVars.color['blue-1200'],
+          backgroundColor: globalVars.color['blue-300']
         },
         ':focus': {
-          color: colorSprinkles({ color: 'blue-900' }),
-          borderColor: colorSprinkles({ color: 'blue-900' }),
-          backgroundColor: colorSprinkles({ color: 'white' })
+          color: globalVars.color['blue-900'],
+          borderColor: globalVars.color['blue-900'],
+          backgroundColor: globalVars.color.white
         },
         ':disabled': {
-          color: colorSprinkles({ color: 'solid-grey-420' }),
-          borderColor: colorSprinkles({ color: 'solid-grey-420' }),
-          backgroundColor: colorSprinkles({ color: 'white' }),
+          color: globalVars.color['solid-grey-420'],
+          borderColor: globalVars.color['solid-grey-420'],
+          backgroundColor: globalVars.color.white,
           textDecoration: 'none',
           cursor: 'default'
         }
       },
       tertiary: {
-        'backgroundColor': colorSprinkles({ color: 'transparent' }),
-        'color': colorSprinkles({ color: 'blue-900' }),
+        'backgroundColor': globalVars.color.transparent,
+        'color': globalVars.color['blue-900'],
         ':hover': {
-          color: colorSprinkles({ color: 'blue-1000' }),
-          borderColor: colorSprinkles({ color: 'blue-1000' }),
-          backgroundColor: colorSprinkles({ color: 'blue-200' })
+          color: globalVars.color['blue-1000'],
+          borderColor: globalVars.color['blue-1000'],
+          backgroundColor: globalVars.color['blue-200']
         },
         ':active': {
-          color: colorSprinkles({ color: 'blue-1200' }),
-          borderColor: colorSprinkles({ color: 'blue-1200' }),
-          backgroundColor: colorSprinkles({ color: 'blue-300' })
+          color: globalVars.color['blue-1200'],
+          borderColor: globalVars.color['blue-1200'],
+          backgroundColor: globalVars.color['blue-300']
         },
         ':focus': {
-          color: colorSprinkles({ color: 'blue-900' }),
-          borderColor: colorSprinkles({ color: 'blue-900' }),
-          backgroundColor: colorSprinkles({ color: 'transparent' })
+          color: globalVars.color['blue-900'],
+          borderColor: globalVars.color['blue-900'],
+          backgroundColor: globalVars.color.transparent
         },
         ':disabled': {
-          color: colorSprinkles({ color: 'solid-grey-420' }),
-          borderColor: colorSprinkles({ color: 'solid-grey-420' }),
-          backgroundColor: colorSprinkles({ color: 'transparent' }),
+          color: globalVars.color['solid-grey-420'],
+          borderColor: globalVars.color['solid-grey-420'],
+          backgroundColor: globalVars.color.transparent,
           textDecoration: 'none',
           cursor: 'default'
         }
