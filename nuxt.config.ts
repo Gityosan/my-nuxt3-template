@@ -20,10 +20,7 @@ export default defineNuxtConfig({
   modules: ['vuetify-nuxt-module', '@nuxt/icon', '@nuxtjs/critters', '@nuxt/test-utils/module', '@nuxt/eslint', '@formkit/auto-animate/nuxt'],
   critters: { config: { preload: 'swap', pruneSource: true } },
   vite: {
-    plugins: [vanillaExtractPlugin({})],
-    ssr: {
-      noExternal: ['@vanilla-extract/css']
-    }
+    plugins: [vanillaExtractPlugin({})]
   },
   runtimeConfig: {
     app: {

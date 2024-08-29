@@ -16,5 +16,6 @@
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true
-  }
+  },
+  "explorer.compactFolders": false
 }
