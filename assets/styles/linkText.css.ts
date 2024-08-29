@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { globalVars } from './color.css'
+import { globalVars } from './globalTheme.css'
 
 export const linkTextStyle = style({
   'color': globalVars.color['blue-1000'],

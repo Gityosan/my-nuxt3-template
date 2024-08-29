@@ -1,7 +1,7 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles'
 import { recipe } from '@vanilla-extract/recipes'
 import { style } from '@vanilla-extract/css'
-import { globalVars } from './color.css'
+import { globalVars } from './globalTheme.css'
 
 const typographyProperties = defineProperties({
   properties: {

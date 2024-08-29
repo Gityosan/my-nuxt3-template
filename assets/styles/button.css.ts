@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 import { textStyle } from './typography.css'
-import { globalVars } from './color.css'
+import { globalVars } from './globalTheme.css'
 
 export const buttonStyle = recipe({
   base: style([
