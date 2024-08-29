@@ -1,9 +1,9 @@
 <template>
   <component
     :is="tag"
-    :class="styles"
+    :class="className"
   >
-    <slot />
+    {{ text }} <slot />
   </component>
 </template>
 
@@ -15,10 +15,12 @@ import { textStyle } from '@/assets/styles/typography.css'
 const props = withDefaults(defineProps<{
   variant?: TextStyleVariants['variant']
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span' | 'strong'
+  text?: string
 }>(), {
   variant: 'body_l',
-  tag: 'p'
+  tag: 'p',
+  text: ''
 })
 
-const styles = computed(() => textStyle({ variant: props.variant }))
+const className = computed(() => textStyle({ variant: props.variant }))
 </script>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { styles } from './index.css'
+
 const props = withDefaults(defineProps<{ modelValue: File | null }>(), { modelValue: null })
 const emit = defineEmits<{ (e: 'update:model-value', value: File | null): void }>()
 const files = ref<File[]>([])
@@ -37,9 +39,7 @@ const onDragLeave = (e: DragEvent) => {
 </script>
 
 <template>
-  <div
-    class="w-100 height-200 bg-grey-lighten-4 rounded border-width-1 border-dotted border-grey-lighten-1 position-relative"
-  >
+  <div :class="styles.container">
     <v-img
       v-if="imageURL"
       :src="imageURL"
@@ -48,14 +48,11 @@ const onDragLeave = (e: DragEvent) => {
     />
     <v-hover v-slot="{ isHovering, props: hover }">
       <div
-        class="w-100 h-100 pa-10 d-flex flex-column justify-center align-center position-absolute top-0 left-0 rounded transition-short-ease-out"
         :class="[
-          { 'bg-grey-darken-2': isDropOvering || (imageURL && isHovering) },
-          isDropOvering || (imageURL && isHovering)
-            ? 'opacity-dot8'
-            : imageURL
-              ? 'opacity-dot0'
-              : 'opacity-dot10'
+          styles.dropZone,
+          isDropOvering && styles.dropZoneVariants.active,
+          imageURL && isHovering && styles.dropZoneVariants.hover,
+          imageURL && !isHovering && styles.dropZoneVariants.hidden
         ]"
         v-bind="hover"
         @drop.stop.prevent="onDrop"
@@ -63,37 +60,44 @@ const onDragLeave = (e: DragEvent) => {
         @dragleave.stop.prevent="onDragLeave"
       >
         <atom-text
-          text="ここにドラッグ&ドロップ"
-          :color="imageURL || isDropOvering ? 'text-white' : 'text-grey-darken-1'"
-          line-height="line-height-lg"
-          class="mb-4"
-        />
+          variant="body_l"
+          :class="[
+            imageURL || isDropOvering ? styles.textVariants.white : styles.textVariants.grey
+          ]"
+        >
+          ここにドラッグ&ドロップ
+        </atom-text>
         <atom-text
-          text="または"
-          :color="imageURL || isDropOvering ? 'text-white' : 'text-grey-darken-1'"
-          line-height="line-height-lg"
-          class="mb-4"
-        />
+          variant="body_l"
+          :class="[
+            imageURL || isDropOvering ? styles.textVariants.white : styles.textVariants.grey
+          ]"
+        >
+          または
+        </atom-text>
         <atom-button
           v-if="imageURL"
-          :text="`リセット（ ${modelValue?.name || ''} ）`"
-          icon="mdi-close"
-          class="bg-white rounded border-solid border-width-1 border-grey-lighten-1"
+          variant="secondary"
+          size="small"
+          prepend-icon="mdi-close"
           @click="resetFile"
-        />
+        >
+          {{ `リセット（ ${modelValue?.name || ''} ）` }}
+        </atom-button>
         <label
           v-else
-          class="px-4 py-2 d-flex align-center bg-white rounded border-solid border-width-1 border-grey-lighten-1 cursor-pointer"
         >
-          <v-icon
-            icon="mdi-folder-open"
-            class="mr-2"
-          />
-          <atom-text text="ファイルを選択" />
+          <atom-button
+            variant="tertiary"
+            size="small"
+            prepend-icon="mdi-folder-open"
+          >
+            {{ 'ファイルを選択' }}
+          </atom-button>
           <input
             type="file"
             accept="image/png, image/jpeg, image/gif"
-            class="d-none"
+            :class="styles.fileInput"
             @input="onFilePicked"
           >
         </label>

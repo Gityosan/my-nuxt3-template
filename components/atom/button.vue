@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="buttonClass"
+    :class="buttonClassName"
     @click="$emit('click', $event)"
   >
     <Icon
@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { IconifyIcon } from '@iconify/types'
 import type { ButtonStyleVariants } from '@/assets/styles/button.css'
 import { buttonStyle } from '@/assets/styles/button.css'
 import { textStyle } from '@/assets/styles/typography.css'
@@ -27,14 +26,14 @@ import { textStyle } from '@/assets/styles/typography.css'
 const props = withDefaults(defineProps<{
   variant?: ButtonStyleVariants['variant']
   size?: ButtonStyleVariants['size']
-  prependIcon?: keyof IconifyIcon
-  appendIcon?: keyof IconifyIcon
+  prependIcon?: string
+  appendIcon?: string
 }>(), {
   variant: 'primary',
   size: 'large'
 })
 
-const buttonClass = computed(() => buttonStyle({ variant: props.variant, size: props.size }))
+const buttonClassName = computed(() => buttonStyle({ variant: props.variant, size: props.size }))
 
 defineEmits<{
   (e: 'click', event: MouseEvent): void
