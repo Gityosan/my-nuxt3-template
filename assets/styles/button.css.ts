@@ -3,6 +3,11 @@ import { recipe } from '@vanilla-extract/recipes'
 import { textStyle } from './typography.css'
 import { globalVars } from './globalTheme.css'
 
+export const buttonContentStyle = style({
+  whiteSpace: 'nowrap', /* 折り返し無しにする */
+  overflow: 'hidden', /* はみ出た部分を非表示 */
+  textOverflow: 'ellipsis' /* 語尾を3点リーダーに */
+})
 export const buttonStyle = recipe({
   base: style([
     textStyle({ variant: 'button' }),
@@ -10,13 +15,11 @@ export const buttonStyle = recipe({
       border: 'none',
       cursor: 'pointer',
       transition: 'background-color 0.3s ease',
-      whiteSpace: 'nowrap', /* 折り返し無しにする */
-      overflow: 'hidden', /* はみ出た部分を非表示 */
-      textOverflow: 'ellipsis', /* 語尾を3点リーダーに */
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: globalVars.borderRadius.small
+      borderRadius: globalVars.borderRadius.small,
+      maxWidth: '100%'
     }
   ]),
   variants: {

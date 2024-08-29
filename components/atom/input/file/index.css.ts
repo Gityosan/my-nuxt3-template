@@ -1,15 +1,20 @@
 import { style, styleVariants } from '@vanilla-extract/css'
+import { globalVars } from '@/assets/styles/globalTheme.css'
 
 export const styles = {
   container: style({
     width: '100%',
     height: '200px',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '4px',
-    border: '1px dotted #e0e0e0',
+    backgroundColor: globalVars.color['solid-grey-50'],
+    borderRadius: globalVars.borderRadius.small,
+    borderWidth: '1px',
+    borderStyle: 'dotted',
+    borderColor: globalVars.color['solid-grey-100'],
     position: 'relative'
   }),
-
+  image: style({
+    maxHeight: '198px'
+  }),
   dropZone: style({
     width: '100%',
     height: '100%',
@@ -24,33 +29,14 @@ export const styles = {
     borderRadius: '4px',
     transition: 'all 0.3s ease-out'
   }),
-
   dropZoneVariants: styleVariants({
     active: { backgroundColor: 'rgba(66, 66, 66, 0.8)' },
     hover: { backgroundColor: 'rgba(66, 66, 66, 0.8)', opacity: 0.8 },
     hidden: { opacity: 0 }
   }),
-
   textVariants: styleVariants({
     white: { color: 'white' },
     grey: { color: '#757575' }
   }),
-
-  button: style({
-    padding: '8px 16px',
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    borderRadius: '4px',
-    border: '1px solid #e0e0e0',
-    cursor: 'pointer'
-  }),
-
-  buttonIcon: style({
-    marginRight: '8px'
-  }),
-
-  fileInput: style({
-    display: 'none'
-  })
+  fileInput: style({ display: 'none' })
 }

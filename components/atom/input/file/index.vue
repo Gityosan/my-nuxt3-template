@@ -44,7 +44,7 @@ const onDragLeave = (e: DragEvent) => {
       v-if="imageURL"
       :src="imageURL"
       :aspect-ratio="16 / 9"
-      class="max-height-198"
+      :class="styles.image"
     />
     <v-hover v-slot="{ isHovering, props: hover }">
       <div
@@ -88,6 +88,7 @@ const onDragLeave = (e: DragEvent) => {
           v-else
         >
           <atom-button
+            tag="div"
             variant="tertiary"
             size="small"
             prepend-icon="mdi-folder-open"
