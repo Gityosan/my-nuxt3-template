@@ -19,7 +19,8 @@ export const buttonStyle = recipe({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: globalVars.borderRadius.small,
-      maxWidth: '100%'
+      maxWidth: '100%',
+      gap: '4px'
     }
   ]),
   variants: {

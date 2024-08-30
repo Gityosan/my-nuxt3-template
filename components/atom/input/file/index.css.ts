@@ -13,7 +13,8 @@ export const styles = {
     position: 'relative'
   }),
   image: style({
-    maxHeight: '198px'
+    height: '100%',
+    objectFit: 'contain'
   }),
   dropZone: style({
     width: '100%',
@@ -21,12 +22,12 @@ export const styles = {
     padding: '40px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     position: 'absolute',
     top: 0,
     left: 0,
-    borderRadius: '4px',
+    borderRadius: globalVars.borderRadius.small,
     transition: 'all 0.3s ease-out'
   }),
   dropZoneVariants: styleVariants({

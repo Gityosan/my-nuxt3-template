@@ -89,7 +89,7 @@ const onDragLeave = (e: DragEvent) => {
         >
           <atom-button
             tag="div"
-            variant="tertiary"
+            variant="secondary"
             size="small"
             prepend-icon="mdi-folder-open"
           >
