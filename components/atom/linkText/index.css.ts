@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { globalVars } from './globalTheme.css'
+import { globalVars } from '@/assets/styles'
 
 export const linkTextStyle = style({
   'cursor': 'pointer',

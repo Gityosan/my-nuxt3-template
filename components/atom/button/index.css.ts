@@ -1,13 +1,18 @@
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-import { textStyle } from './typography.css'
-import { globalVars } from './globalTheme.css'
+import { textStyle, globalVars } from '@/assets/styles'
 
-export const buttonContentStyle = style({
-  whiteSpace: 'nowrap', /* 折り返し無しにする */
-  overflow: 'hidden', /* はみ出た部分を非表示 */
-  textOverflow: 'ellipsis' /* 語尾を3点リーダーに */
-})
+export const styles = {
+  content: style({
+    whiteSpace: 'nowrap', /* 折り返し無しにする */
+    overflow: 'hidden', /* はみ出た部分を非表示 */
+    textOverflow: 'ellipsis' /* 語尾を3点リーダーに */
+  }),
+  loadingIcon: style({
+    height: '100%',
+    width: '100%'
+  })
+}
 export const buttonStyle = recipe({
   base: style([
     textStyle({ variant: 'button' }),
@@ -20,7 +25,12 @@ export const buttonStyle = recipe({
       alignItems: 'center',
       borderRadius: globalVars.borderRadius.small,
       maxWidth: '100%',
-      gap: '4px'
+      gap: '4px',
+      selectors: {
+        '&[aria-disabled=true]': {
+          cursor: 'pointer'
+        }
+      }
     }
   ]),
   variants: {
@@ -37,11 +47,13 @@ export const buttonStyle = recipe({
         ':focus': {
           backgroundColor: globalVars.color['blue-900']
         },
-        ':disabled': {
-          backgroundColor: globalVars.color.black,
-          opacity: '0.3',
-          textDecoration: 'none',
-          cursor: 'default'
+        'selectors': {
+          '&[aria-disabled=true], &:disabled': {
+            backgroundColor: globalVars.color.black,
+            opacity: '0.3',
+            textDecoration: 'none',
+            cursor: 'default'
+          }
         }
       },
       secondary: {
@@ -65,12 +77,14 @@ export const buttonStyle = recipe({
           borderColor: globalVars.color['blue-900'],
           backgroundColor: globalVars.color.white
         },
-        ':disabled': {
-          color: globalVars.color['solid-grey-420'],
-          borderColor: globalVars.color['solid-grey-420'],
-          backgroundColor: globalVars.color.white,
-          textDecoration: 'none',
-          cursor: 'default'
+        'selectors': {
+          '&[aria-disabled=true], &:disabled': {
+            color: globalVars.color['solid-grey-420'],
+            borderColor: globalVars.color['solid-grey-420'],
+            backgroundColor: globalVars.color.white,
+            textDecoration: 'none',
+            cursor: 'default'
+          }
         }
       },
       tertiary: {
@@ -91,12 +105,14 @@ export const buttonStyle = recipe({
           borderColor: globalVars.color['blue-900'],
           backgroundColor: globalVars.color.transparent
         },
-        ':disabled': {
-          color: globalVars.color['solid-grey-420'],
-          borderColor: globalVars.color['solid-grey-420'],
-          backgroundColor: globalVars.color.transparent,
-          textDecoration: 'none',
-          cursor: 'default'
+        'selectors': {
+          '&[aria-disabled=true], &:disabled': {
+            color: globalVars.color['solid-grey-420'],
+            borderColor: globalVars.color['solid-grey-420'],
+            backgroundColor: globalVars.color.transparent,
+            textDecoration: 'none',
+            cursor: 'default'
+          }
         }
       }
     },

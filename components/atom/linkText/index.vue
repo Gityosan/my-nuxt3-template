@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TextStyleVariants } from '@/assets/styles/typography.css'
-import { textStyle } from '@/assets/styles/typography.css'
-import { linkTextStyle } from '@/assets/styles/linkText.css'
+import { linkTextStyle } from './index.css'
+import { textStyle, type TextStyleVariants } from '@/assets/styles'
 
 const props = withDefaults(defineProps<{
   variant?: Extract<TextStyleVariants['variant'], 'body_l' | 'body_m' | 'label_l' | 'label_m' | 'caption_l' | 'caption_m'>
