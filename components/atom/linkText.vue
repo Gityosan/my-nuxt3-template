@@ -1,7 +1,7 @@
 <template>
-  <a :class="className">
+  <NuxtLink :class="className">
     <slot />
-  </a>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +11,7 @@ import { textStyle } from '@/assets/styles/typography.css'
 import { linkTextStyle } from '@/assets/styles/linkText.css'
 
 const props = withDefaults(defineProps<{
-  variant?: Extract<TextStyleVariants['variant'], 'body_l' | 'body_m' | 'caption_l' | 'caption_m'>
+  variant?: Extract<TextStyleVariants['variant'], 'body_l' | 'body_m' | 'label_l' | 'label_m' | 'caption_l' | 'caption_m'>
 }>(), {
   variant: 'body_l'
 })
