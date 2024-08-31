@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const isHovering = ref<boolean>(false)
+</script>
+
 <template>
   <div
     @mouseenter="isHovering = true"
@@ -8,7 +12,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const isHovering = ref<boolean>(false)
-</script>

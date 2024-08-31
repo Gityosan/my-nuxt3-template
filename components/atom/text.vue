@@ -1,12 +1,3 @@
-<template>
-  <component
-    :is="tag"
-    :class="className"
-  >
-    {{ text }} <slot />
-  </component>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { TextStyleVariants } from '@/assets/styles/typography.css'
@@ -24,3 +15,12 @@ const props = withDefaults(defineProps<{
 
 const className = computed(() => textStyle({ variant: props.variant }))
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="className"
+  >
+    {{ text }} <slot />
+  </component>
+</template>

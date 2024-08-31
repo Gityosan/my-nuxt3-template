@@ -1,25 +1,3 @@
-<template>
-  <component
-    :is="tag"
-    :class="buttonClassName"
-    @click="$emit('click', $event)"
-  >
-    <Icon
-      v-if="prependIcon"
-      :name="prependIcon"
-      :class="textStyle({ variant: 'button_icon' })"
-    />
-    <span :class="buttonContentStyle">
-      <slot />
-    </span>
-    <Icon
-      v-if="appendIcon"
-      :name="appendIcon"
-      :class="textStyle({ variant: 'button_icon' })"
-    />
-  </component>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ButtonStyleVariants } from '@/assets/styles/button.css'
@@ -44,3 +22,25 @@ defineEmits<{
   (e: 'click', event: MouseEvent): void
 }>()
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="buttonClassName"
+    @click="$emit('click', $event)"
+  >
+    <Icon
+      v-if="prependIcon"
+      :name="prependIcon"
+      :class="textStyle({ variant: 'button_icon' })"
+    />
+    <span :class="buttonContentStyle">
+      <slot />
+    </span>
+    <Icon
+      v-if="appendIcon"
+      :name="appendIcon"
+      :class="textStyle({ variant: 'button_icon' })"
+    />
+  </component>
+</template>
