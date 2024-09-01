@@ -9,18 +9,19 @@ const props = withDefaults(defineProps<{
   label: string
   disabled: boolean
   multiple: boolean
+  errorMessages: string[]
 }>(), {
   options: () => [],
   modelValue: null,
   disabled: false,
-  multiple: false
+  multiple: false,
+  errorMessages: () => []
 })
 
 const emit = defineEmits<{
   (e: 'update:modelValue', v: any): void
 }>()
 const selectedValue = ref<any>(props.modelValue)
-const errorMessage = ref<string | null>(null)
 const handleChange = () => {
   emit('update:modelValue', selectedValue.value)
 }
@@ -68,12 +69,15 @@ const handleChange = () => {
         :class="styles.selectIcon"
       />
     </div>
-    <AtomText
-      v-if="errorMessage"
-      variant="caption_l"
-      :style="assignInlineVars({ color: globalVars.color['error-1'] })"
-    >
-      ＊{{ errorMessage }}
-    </AtomText>
+    <template v-if="errorMessages.length">
+      <AtomText
+        v-for="v in errorMessages"
+        :key="v"
+        variant="caption_l"
+        :style="assignInlineVars({ color: globalVars.color['error-1'] })"
+      >
+        ＊{{ v }}
+      </AtomText>
+    </template>
   </div>
 </template>
