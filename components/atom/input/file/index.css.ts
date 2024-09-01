@@ -36,8 +36,8 @@ export const styles = {
     hidden: { opacity: 0 }
   }),
   textVariants: styleVariants({
-    white: { color: 'white' },
-    grey: { color: '#757575' }
+    white: { color: globalVars.color.white },
+    grey: { color: globalVars.color['solid-grey-536'] }
   }),
   fileInput: style({ display: 'none' })
 }

@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 import { globalVars } from '@/assets/styles'
 
 export const styles = {
@@ -52,5 +52,9 @@ export const styles = {
     right: '16px',
     width: '16px',
     height: '16px'
+  }),
+  colorVariants: styleVariants({
+    default: { color: globalVars.color['solid-grey-900'] },
+    disabled: { color: globalVars.color['solid-grey-420'] }
   })
 }

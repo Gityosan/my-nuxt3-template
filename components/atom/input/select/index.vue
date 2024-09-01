@@ -34,7 +34,11 @@ const handleChange = () => {
         variant="label_l"
         tag="label"
         :name="label"
-        :style="assignInlineVars({ fontSize: globalVars.fontSize.body_l, fontWeight: globalVars.fontWeight.bold })"
+        :style="assignInlineVars({
+          fontSize: globalVars.fontSize.body_l,
+          fontWeight: globalVars.fontWeight.bold,
+          color: disabled ? styles.colorVariants.disabled : styles.colorVariants.default
+        })"
       >
         {{ label }}
       </AtomText>
@@ -67,6 +71,9 @@ const handleChange = () => {
       <Icon
         name="mingcute:down-line"
         :class="styles.selectIcon"
+        :style="assignInlineVars({
+          color: disabled ? styles.colorVariants.disabled : styles.colorVariants.default
+        })"
       />
     </div>
     <template v-if="errorMessages.length">
