@@ -90,12 +90,13 @@ const deleteItems = async () => {
         :model-value="perPage"
         @update:model-value="$emit('update:per-page', $event)"
       />
-      <atom-button-outlined
-        text="再取得"
-        :disabled="ineditable"
+      <atom-button
+        :aria-disabled="ineditable"
         icon="mdi-reload"
         @click="$emit('fetch')"
-      />
+      >
+        再取得
+      </atom-button>
     </div>
     <v-data-table
       v-model="selectedIds"
@@ -155,8 +156,7 @@ const deleteItems = async () => {
               class="bg-grey-lighten-3 border-bottom-solid border-width-1 border-grey-lighten-1"
             >
               <atom-text
-                comp="span"
-                font-size="text-subtitle-2"
+                tag="span"
                 class="mr-2 cursor-pointer"
                 @click="toggleSort(column)"
               >
@@ -184,19 +184,20 @@ const deleteItems = async () => {
             >
               <atom-text
                 v-if="selectedIds.length > 1"
-                :text="`${selectedIds.length}件のアイテムが選択されています。`"
                 font-size="text-subtitle-2"
                 line-height="line-height-lg"
-              />
-              <atom-button-outlined
+              >
+                {{ `${selectedIds.length}件のアイテムが選択されています。` }}
+              </atom-text>
+              <atom-button
                 v-if="selectedIds.length > 1"
-                text="選択したアイテムの削除"
-                variant="small"
-                :disabled="ineditable"
+                :aria-disabled="ineditable"
                 icon="mdi-delete"
                 class="ml-2 bg-white"
                 @click="open = true"
-              />
+              >
+                選択したアイテムの削除
+              </atom-button>
             </div>
           </td>
         </tr>

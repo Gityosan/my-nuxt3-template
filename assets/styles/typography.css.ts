@@ -5,45 +5,10 @@ import { globalVars } from './globalTheme.css'
 
 const typographyProperties = defineProperties({
   properties: {
-    fontSize: {
-      heading_xxl: '57px',
-      heading_xl: '45px',
-      heading_lg: '36px',
-      heading_lg_m: '32px',
-      heading_md: '32px',
-      heading_md_m: '28px',
-      heading_sm: '28px',
-      heading_sm_m: '24px',
-      heading_xs: '24px',
-      heading_xs_m: '20px',
-      heading_xxs: '20px',
-      heading_xxs_m: '16px',
-      body_l: '16px',
-      body_m: '14px',
-      label_l: '14px',
-      label_m: '12px',
-      caption_l: '12px',
-      caption_m: '10px',
-      button: '16px'
-    },
-    fontWeight: {
-      normal: '400',
-      medium: '500',
-      bold: '700'
-    },
-    lineHeight: {
-      level_1: '1.0',
-      level_2: '1.2',
-      level_3: '1.3',
-      level_4: '1.4',
-      level_5: '1.5',
-      level_6: '1.6',
-      level_7: '1.7'
-    },
-    letterSpacing: {
-      base: '0.04em',
-      tight: '0.02em'
-    }
+    fontSize: globalVars.fontSize,
+    fontWeight: globalVars.fontWeight,
+    lineHeight: globalVars.lineHeight,
+    letterSpacing: globalVars.letterSpacing
   }
 })
 
@@ -52,9 +17,9 @@ export const typographySprinkles = createSprinkles(typographyProperties)
 export const textStyle = recipe({
   base: style([
     {
-      fontFamily: 'Noto Sans JP, sans-serif'
-    },
-    globalVars.color['solid-grey-800']
+      fontFamily: 'Noto Sans JP, sans-serif',
+      color: globalVars.color['solid-grey-800']
+    }
   ]),
   variants: {
     variant: {
