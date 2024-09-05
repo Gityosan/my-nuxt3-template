@@ -24,7 +24,7 @@ export const textStyle = recipe({
   variants: {
     variant: {
       heading1: [
-        typographySprinkles({ fontSize: 'heading_lg', lineHeight: 'level_4', fontWeight: 'normal' }),
+        typographySprinkles({ fontSize: 'heading_lg', lineHeight: 'level_4', fontWeight: 'normal', letterSpacing: 'base' }),
         { paddingTop: '64px', paddingBottom: '24px' }
       ],
       heading2: [
